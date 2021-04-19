@@ -2,7 +2,7 @@ package pojo;
 
 import java.util.Date;
 
-public class smbms_provider {
+public class Provider {
     private Integer id;             //id
     private String proCode;         //供应商编码
     private String proName;         //供应商名称

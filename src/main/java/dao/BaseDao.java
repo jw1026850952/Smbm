@@ -61,9 +61,11 @@ public class BaseDao {
 
         for (int i = 0; i < params.length; i++) {
             preparedStatement.setObject(i+1, params[i]);
+            System.out.println("id"+(i+1)+"paras"+params[i]);
         }
 
         int updateRows = preparedStatement.executeUpdate();
+        System.out.println("updateRows"+updateRows);
         return updateRows;
     }
 

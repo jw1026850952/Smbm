@@ -3,7 +3,7 @@ package pojo;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class smbms_bill {
+public class Bill {
     private Integer id;                 //id
     private String billCode;            //账单编码
     private String productName;         //商品名称

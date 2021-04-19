@@ -5,7 +5,9 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0"
          metadata-complete="true">
-        <!--字符编码过滤器-->
+
+
+    <!--字符编码过滤器-->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
         <filter-class>filter.CharacterEncodingFilter</filter-class>
@@ -14,5 +16,57 @@
         <filter-name>CharacterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <!--用户登录过滤器-->
+    <filter>
+        <filter-name>SysFilter</filter-name>
+        <filter-class>filter.SysFiler</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SysFilter</filter-name>
+        <url-pattern>/jsp/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--Servlet-->
+    //登录
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlet.user.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login.do</url-pattern>
+    </servlet-mapping>
+
+    //注销
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>servlet.user.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/jsp/logout.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>servlet.user.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/jsp/user.do</url-pattern>
+    </servlet-mapping>
+
+
+
+    <!--设置欢迎页面-->
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+    <!--默认Session过期时间-->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
 
 </web-app>

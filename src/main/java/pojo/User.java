@@ -2,7 +2,7 @@ package pojo;
 
 import java.util.Date;
 
-public class smvms_user {
+public class User {
     private Integer id;             //id
     private String userCode;        //用户编码
     private String userName;        //用户名称

@@ -2,7 +2,7 @@ package pojo;
 
 import java.util.Date;
 
-public class smbms_role {
+public class Role {
     private Integer id;
     private String roleCode;
     private String roleName;
