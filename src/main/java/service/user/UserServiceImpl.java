@@ -100,6 +100,99 @@ public class UserServiceImpl implements UserService{
         return userList;
     }
 
+    //添加用户
+    public boolean add(User user) {
+        boolean flag = false;
+        Connection connection = null;
+        try {
+            connection = BaseDao.getConnection();
+            connection.setAutoCommit(false);//开启JDBC事务管理
+            int updateRows = userDao.add(connection,user);  //执行SQL语句
+            connection.commit();  //事务提交
+            if(updateRows > 0){   //判断是否添加成功
+                flag = true;
+                System.out.println("add success!");
+            }else{
+                System.out.println("add failed!");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();   //如果报错，即立刻回滚事务
+            try {
+                System.out.println("rollback==================");
+                connection.rollback();
+            } catch (SQLException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+        }finally{
+            //在service层进行connection连接的关闭
+            BaseDao.closeResource(connection, null, null);
+        }
+        return flag;
+    }
+
+    public User selectUserCodeExist(String userCode) {
+        Connection connection = null;
+        User user = null;
+        try {
+            connection = BaseDao.getConnection();
+            user = userDao.getLoginUser(connection, userCode);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally{
+            BaseDao.closeResource(connection, null, null);
+        }
+        return user;
+    }
+
+    public boolean deleteUserById(Integer delId) {
+        Connection connection = null;
+        boolean flag = false;
+        try {
+            connection = BaseDao.getConnection();
+            if(userDao.deleteUserById(connection,delId) > 0) //判断是否删除成功
+                flag = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            BaseDao.closeResource(connection, null, null);
+        }
+        return flag;
+    }
+
+    public User getUserById(String id) {
+        User user = null;
+        Connection connection = null;
+        try{
+            connection = BaseDao.getConnection();
+            user = userDao.getUserById(connection,id);
+        }catch (Exception e) {
+            e.printStackTrace();
+            user = null;
+        }finally{
+            BaseDao.closeResource(connection, null, null);
+        }
+        return user;
+    }
+
+    public boolean modify(User user) {
+        Connection connection = null;
+        boolean flag = false;
+        try {
+            connection = BaseDao.getConnection();
+            if(userDao.modify(connection,user) > 0)
+                flag = true;
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally{
+            BaseDao.closeResource(connection, null, null);
+        }
+        return flag;
+    }
+
     @Test
     public void test(){
         UserServiceImpl userService = new UserServiceImpl();

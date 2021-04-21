@@ -20,6 +20,16 @@ public interface UserDao {
     //通过条件查询用户列表
     public List<User> getUserList(Connection connection,String username,int userRole,int currentPageNo,int pageSize)throws Exception;
 
+    //通过用户信息添加用户
+    public int add(Connection connection, User user)throws Exception;
 
+    //根据id删除用户
+    public int deleteUserById(Connection connection, Integer delId)throws Exception;
+
+    //根据id查询用户
+    public User getUserById(Connection connection, String id)throws Exception;
+
+    //修改用户信息
+    public int modify(Connection connection, User user)throws Exception;
 
 }

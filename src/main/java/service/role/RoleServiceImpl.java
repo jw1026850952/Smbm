@@ -19,6 +19,7 @@ public class RoleServiceImpl implements RoleService{
         roleDao = new RoleDaoImpl();
     }
 
+    //获取角色列表
     public List<Role> getRoleList() {
         Connection connection =null;
         List<Role> roleList = null;
