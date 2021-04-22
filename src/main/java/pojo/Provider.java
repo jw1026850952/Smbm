@@ -7,7 +7,7 @@ public class Provider {
     private String proCode;         //供应商编码
     private String proName;         //供应商名称
     private String proDesc;         //供应商描述
-    private String proCountact;     //供应商联系人
+    private String proContact;     //供应商联系人
     private String proPhone;        //供应商电话
     private String proAddress;      //供应商地址
     private String proFax;          //供应商传真
@@ -16,6 +16,13 @@ public class Provider {
     private Integer modifyBy;       //更新者
     private Date modifyDate;        //更新时间
 
+    public String getProContact() {
+        return proContact;
+    }
+
+    public void setProContact(String proContact) {
+        this.proContact = proContact;
+    }
 
     public Integer getId() {
         return id;
@@ -49,13 +56,7 @@ public class Provider {
         this.proDesc = proDesc;
     }
 
-    public String getProCountact() {
-        return proCountact;
-    }
 
-    public void setProCountact(String proCountact) {
-        this.proCountact = proCountact;
-    }
 
     public String getProPhone() {
         return proPhone;

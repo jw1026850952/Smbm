@@ -29,7 +29,7 @@
 
 
     <!--Servlet-->
-    //登录
+    //用户登录
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>servlet.user.LoginServlet</servlet-class>
@@ -39,7 +39,7 @@
         <url-pattern>/login.do</url-pattern>
     </servlet-mapping>
 
-    //注销
+    //用户注销
     <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>servlet.user.LogoutServlet</servlet-class>
@@ -49,6 +49,7 @@
         <url-pattern>/jsp/logout.do</url-pattern>
     </servlet-mapping>
 
+    //用户管理
     <servlet>
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>servlet.user.UserServlet</servlet-class>
@@ -58,6 +59,25 @@
         <url-pattern>/jsp/user.do</url-pattern>
     </servlet-mapping>
 
+    //供应商管理
+    <servlet>
+        <servlet-name>ProviderServlet</servlet-name>
+        <servlet-class>servlet.provider.ProviderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProviderServlet</servlet-name>
+        <url-pattern>/jsp/provider.do</url-pattern>
+    </servlet-mapping>
+
+    //订单管理
+    <servlet>
+        <servlet-name>BillServlet</servlet-name>
+        <servlet-class>servlet.bill.BillServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BillServlet</servlet-name>
+        <url-pattern>/jsp/bill.do</url-pattern>
+    </servlet-mapping>
 
 
     <!--设置欢迎页面-->

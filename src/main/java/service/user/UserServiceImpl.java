@@ -132,6 +132,7 @@ public class UserServiceImpl implements UserService{
         return flag;
     }
 
+    //根据用户编码，查看用户是否存在
     public User selectUserCodeExist(String userCode) {
         Connection connection = null;
         User user = null;
@@ -147,6 +148,7 @@ public class UserServiceImpl implements UserService{
         return user;
     }
 
+    //根据用户id，删除用户
     public boolean deleteUserById(Integer delId) {
         Connection connection = null;
         boolean flag = false;
@@ -162,6 +164,7 @@ public class UserServiceImpl implements UserService{
         return flag;
     }
 
+    //通过用户id，获取用户信息
     public User getUserById(String id) {
         User user = null;
         Connection connection = null;
@@ -177,6 +180,7 @@ public class UserServiceImpl implements UserService{
         return user;
     }
 
+    //修改用户信息
     public boolean modify(User user) {
         Connection connection = null;
         boolean flag = false;

@@ -286,7 +286,6 @@ public class UserServlet extends HttpServlet {
         try{
             delId = Integer.parseInt(id);
         }catch (Exception e) {
-            // TODO: handle exception
             delId = 0;
         }
         HashMap<String, String> resultMap = new HashMap<String, String>();
